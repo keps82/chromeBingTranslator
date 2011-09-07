@@ -1,0 +1,13 @@
+            body 
+            { 
+                min-width: 400px; 
+                overflow-x: hidden; 
+                font-family: Arial, sans-serif; 
+                font-size: 12px; 
+		background: #fff;
+		border: 4px dashed yellow;
+		padding: 2em;
+            }
+	    /* div { font-weight: bold; } */
+	    /* div#fromText { color:blue } */
+	    

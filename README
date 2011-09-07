@@ -1,0 +1,40 @@
+Description:
+************
+A very simple chrome extension that allows the user to translate text selected in the browser into Spanish without opening a new tab.
+
+
+
+Installation:
+*************
+Chrome -> tools -> extensions -> load unpacked extension.
+
+
+
+Some notes on the flow of execution
+***********************************
+We set up an actionListener with a response function as a parameter.
+
+The page loads
+
+getPageInfo(onPageInfo) is called, where onPageInfo is a function.  It
+is the callback function.
+
+onPageInfo is added to the stack for later use.
+
+Chrome tabs API is used to inject content_script.js into the current webpage.
+
+content_script.js creates an object which contains info about the
+current webpage.  It sends a request to the chrome extension with this
+info.
+
+When the extension receives the request, the actionListener is
+triggered.  When the actionListener was defined, it was given a
+function as an argument, and that function took a single argument.
+Now the actionListener has been triggered by a request, containing the
+page information JSON.  This page information JSON is the argument of
+the function and that function is now called.
+
+When the function is called, the first callback is taken off the stack
+- in our case this is the onPageInfo function.
+
+onPageInfo is called with the JSON parameter and it populates the "fromText" field with the page information. whew!

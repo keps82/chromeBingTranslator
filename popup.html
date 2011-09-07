@@ -1,0 +1,47 @@
+<html>
+  <head>
+    <link rel=StyleSheet href="style.css" type="text/css">
+    <script>
+      
+      window.onload = function() 
+      { 
+      var bg = chrome.extension.getBackgroundPage();
+      bg.getPageInfo(onPageInfo);
+      }
+      
+      
+      function onPageInfo(arg) 
+      { 
+      document.getElementById("fromText").innerText = arg.fromText; 
+      } 
+      
+      
+      function translateText(f,text){
+      var req = new XMLHttpRequest();
+      var myAppId = "37E13AC276BAB67F701AFE3EB1B5AC14EE66A049";
+      var from = "en";
+      var to = "es";
+      var URI = "http://api.microsofttranslator.com/V2/Ajax.svc/Translate?&appId="+myAppId+"&from=" + from + "&to=" + to + "&text=" + text;
+      req.open("GET", URI, true);
+      req.setRequestHeader("Content-type", "text");
+      req.onreadystatechange = function() 
+      {
+      if (req.readyState == 4 && req.status == 200){
+      document.getElementById("toText").innerText=req.response;}
+      else{document.getElementById("toText").innerText="request failed";}
+      };
+      req.send();
+      return false;
+      }
+
+      
+    </script>
+  </head>
+  <body>
+    <div id="fromText"></div></br>
+    <form onclick="translateText(this,document.getElementById('fromText').innerText)">
+      <input type="button" style="width:auto;text-weight:bold" value="Bing me spanish!" />
+    </form>
+    <div id="toText"></div>
+  </body>
+</html>

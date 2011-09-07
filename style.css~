@@ -1,0 +1,10 @@
+            body 
+            { 
+                min-width: 420px; 
+                overflow-x: hidden; 
+                font-family: Arial, sans-serif; 
+                font-size: 12px; 
+            }
+            input, textarea { width: 420px; }
+            input#save { font-weight: bold; width: auto; }
+	    div#fromText { color:blue }
