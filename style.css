@@ -2,13 +2,19 @@
             { 
                 min-width: 400px; 
                 overflow-x: hidden; 
-                font-family: Arial, sans-serif; 
-                font-size: 12px; 
+                font-size: 13px; 
 		background: #fff;
 		border: 4px dashed yellow;
 		padding: 2em;
 		font-family: 'Volkhov', serif;
             }
+	    input.pretty
+	    {
+		/* background-color: white; */
+		/* border-color: yellow;/\* fffe8a; *\/ */
+		font-family: 'Volkhov', serif;
+		/* color: black; */
+	    }
 	    /* div { font-weight: bold; } */
 	    /* div#fromText { color:blue } */
 	    
